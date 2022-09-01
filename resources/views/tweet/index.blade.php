@@ -8,11 +8,7 @@
     <title>つぶやきアプリ</title>
 </head>
 <body>
-<h1>つぶやきアプリ</h1>
-<div>
-    @foreach($tweets as $tweet)
-        <p>{{ $tweet->content }}</p>
-    @endforeach
-</div>
+    <h1>つぶやきアプリ</h1>
+    <p>{{ $name  }}</p>
 </body>
 </html>
