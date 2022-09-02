@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,13 @@ Route::get('/dashboard', function () {
 
 // Inertiaの利用例
 Route::get('/inertia', \App\Http\Controllers\Tweet\FirstInertiaController::class)->name('tweet.inertia');
+Route::get('/welcome', function () {
+    return Inertia::render('Welcome',[
+        'greeting' => 'Hello'
+    ]);
+});
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
 
 require __DIR__.'/auth.php';

@@ -25,20 +25,22 @@ function resolvePageComponent(name, pages) {
     throw new Error(`Page not found: ${name}`)
 }
 
-createInertiaApp({
-    // resolve: async name => {
-    //     if (import.meta.env.DEV) {
-    //         return await import(`./Pages/${name}.vue`)
-    //     } else {
-    //         let pages = import.meta.glob('./Pages/**/*.vue')
-    //         const importPage = pages[`./Pages/${name}.vue`]
-    //         return importPage().then(module)
-    //     }
-    // },
-    resolve: (name) => resolvePageComponent(name, import.meta.glob('./Pages/**/*.vue')),
-    setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .mount(el);
-    },
-});
+if (typeof app != 'undefined') {
+    createInertiaApp({
+        // resolve: async name => {
+        //     if (import.meta.env.DEV) {
+        //         return await import(`./Pages/${name}.vue`)
+        //     } else {
+        //         let pages = import.meta.glob('./Pages/**/*.vue')
+        //         const importPage = pages[`./Pages/${name}.vue`]
+        //         return importPage().then(module)
+        //     }
+        // },
+        resolve: (name) => resolvePageComponent(name, import.meta.glob('./Pages/**/*.vue')),
+        setup({el, App, props, plugin}) {
+            createApp({render: () => h(App, props)})
+                .use(plugin)
+                .mount(el);
+        },
+    });
+}
