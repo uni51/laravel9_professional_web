@@ -34,4 +34,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Inertiaの利用例
+Route::get('/inertia', \App\Http\Controllers\Tweet\FirstInertiaController::class)->name('tweet.inertia');
+
 require __DIR__.'/auth.php';
