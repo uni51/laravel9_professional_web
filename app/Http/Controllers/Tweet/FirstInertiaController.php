@@ -14,7 +14,7 @@ class FirstInertiaController extends Controller
     {
         $tweets = $tweetService->getTweets();
 
-        return Inertia::render('TweetIndex')
+        return Inertia::render('Tweet/TweetIndex')
             ->with('tweets', $tweets);
     }
 }
