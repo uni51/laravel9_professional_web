@@ -11,9 +11,7 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        vue({
-            delimiters: ["<%","%>"]
-        }),
+        vue(),
     ],
     server: {
         host: true

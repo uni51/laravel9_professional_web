@@ -6,4 +6,9 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-import './pages/welcome';
+// import './vue/welcome';
+
+import { createApp } from 'vue'
+
+import App from './vue/welcome.vue'
+createApp(App).mount('#welcome-vue')
