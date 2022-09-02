@@ -25,6 +25,7 @@ function resolvePageComponent(name, pages) {
     throw new Error(`Page not found: ${name}`)
 }
 
+// app.blade.phpの場合は以下のcreateInertiaAppの適用を除外する
 if (typeof app != 'undefined') {
     createInertiaApp({
         // resolve: async name => {
